@@ -7,33 +7,24 @@ import numpy
 import random
 from math import pi
 import matplotlib.pylab as plt
-
-#NUMBER OF STEPS, VERY IMPORTANT for FOR LOOP, SENSORS AND TARGET ANGLES
-steps = 1000
-
-amplitudeBL = pi/4
-frequencyBL = 7
-phaseOffSetBL = pi/4
-amplitudeFL = pi/4
-frequencyFL = 1
-phaseOffSetFL = pi/8
+import constants as c
 #amplitude * sin(frequency * i + phaseOffset)
 #targetAngles = numpy.linspace(0,2*pi,steps)
 #numpy.save('data/targetAngles.npy',targetAngles)
 #exit()
-targetAnglesFL = amplitudeBL*numpy.sin(frequencyBL*numpy.linspace(0,2*pi, steps) + phaseOffSetBL)
-targetAnglesBL = amplitudeFL*numpy.sin(frequencyFL*numpy.linspace(0,2*pi, steps) + phaseOffSetFL)
+targetAnglesFL = c.amplitudeBL*numpy.sin(c.frequencyBL*numpy.linspace(0,2*pi, c.steps) + c.phaseOffSetBL)
+targetAnglesBL = c.amplitudeFL*numpy.sin(c.frequencyFL*numpy.linspace(0,2*pi, c.steps) + c.phaseOffSetFL)
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
-p.setGravity(0,0,-9.8)
+p.setGravity(0,0,c.grav)
 planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
-backLegSensorValues = numpy.zeros(steps)
-frontLegSensorValues = numpy.zeros(steps)
+backLegSensorValues = numpy.zeros(c.steps)
+frontLegSensorValues = numpy.zeros(c.steps)
 
-for i in range (steps): #should be 1000
+for i in range (c.steps): #should be 1000
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
@@ -43,15 +34,15 @@ for i in range (steps): #should be 1000
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
         targetPosition = targetAnglesBL[i],
-        maxForce = 10)
+        maxForce = c.maxForce)
     #Front Leg
     pyrosim.Set_Motor_For_Joint(
         bodyIndex = robotId,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
         targetPosition = targetAnglesFL[i],
-        maxForce = 10)
-    time.sleep(1/60)
+        maxForce = c.maxForce)
+    time.sleep(c.sleep)
 
 numpy.save('data/backLegSensorValues.npy',backLegSensorValues)
 numpy.save('data/frontLegSensorValues.npy',frontLegSensorValues)
