@@ -15,7 +15,6 @@ import constants as c
 #exit()
 targetAnglesFL = c.amplitudeBL*numpy.sin(c.frequencyBL*numpy.linspace(0,2*pi, c.steps) + c.phaseOffSetBL)
 targetAnglesBL = c.amplitudeFL*numpy.sin(c.frequencyFL*numpy.linspace(0,2*pi, c.steps) + c.phaseOffSetFL)
-
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,c.grav)
