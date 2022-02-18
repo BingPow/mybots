@@ -8,12 +8,9 @@ grav = -9.8
 steps = 1000
 
 #Amplitudes and Front Legs
-amplitudeBL = pi/4
-frequencyBL = 7
-phaseOffSetBL = pi/4
-amplitudeFL = pi/4
-frequencyFL = 1
-phaseOffSetFL = pi/8
+amplitude = pi/4
+frequency = 7
+phaseOffSet = pi/4
 
 maxForce = 10
 

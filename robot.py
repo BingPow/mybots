@@ -2,6 +2,7 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import constants as c
+import numpy
 
 from sensor import SENSOR
 from motor import MOTOR
@@ -10,8 +11,8 @@ class ROBOT:
     def __init__(self):
         self.sensors = {}
         self.motors = {}
-        self.robotId = p.loadURDF("body.urdf")
-
+        self.robot = p.loadURDF("body.urdf")
+    #Removed robotId with robot
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:
             self.sensors[linkName] = SENSOR(linkName)
@@ -25,3 +26,14 @@ class ROBOT:
     def Prepare_To_Act(self):
         for jointName in pyrosim.jointNamesToIndices:
             self.motors[jointName] = MOTOR(jointName)
+
+    def Act(self,i):
+        self.jointNamesList = list(self.motors.keys())
+        for i in range(len(self.motors)):
+            self.motors[self.jointNamesList[i]].Set_Value(self.robot,i)
+
+    def Save_Values(self):
+        pass
+        #numpy.save('data/backLegSensorValues.npy',self.sensors"")
+        #numpy.save('data/frontLegSensorValues.npy',frontLegSensorValues)
+        #numpy.save('data/targetAngles.npy',targetAngles)

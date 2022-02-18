@@ -19,32 +19,16 @@ class SIMULATION:
         p.setGravity(0,0,c.grav)
         self.world = WORLD()
         self.robot = ROBOT()
-        pyrosim.Prepare_To_Simulate(self.robot.robotId)
+        pyrosim.Prepare_To_Simulate(self.robot.robot)
         self.robot.Prepare_To_Sense()
+        self.robot.Prepare_To_Act()
 
     def Run(self):
         for i in range (c.steps): #should be 1000
             print(i)
             p.stepSimulation()
             self.robot.Sense(i)
-            '''
-            backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-            frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-            #Back Leg
-            pyrosim.Set_Motor_For_Joint(
-                bodyIndex = robotId,
-                jointName = "Torso_BackLeg",
-                controlMode = p.POSITION_CONTROL,
-                targetPosition = targetAnglesBL[i],
-                maxForce = c.maxForce)
-            #Front Leg
-            pyrosim.Set_Motor_For_Joint(
-                bodyIndex = robotId,
-                jointName = "Torso_FrontLeg",
-                controlMode = p.POSITION_CONTROL,
-                targetPosition = targetAnglesFL[i],
-                maxForce = c.maxForce)
-            '''
+            self.robot.Act(i)
             time.sleep(c.sleep)
 
     def __del__(self):
