@@ -4,6 +4,7 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 from math import pi
 import constants as c
+import matplotlib.pylab as plt
 
 class MOTOR:
     def __init__(self,jointName):
@@ -14,7 +15,11 @@ class MOTOR:
         self.amplitude = c.amplitude
         self.frequency = c.frequency
         self.offset = c.phaseOffSet
-        self.motorValues = self.amplitude*numpy.sin(self.frequency*numpy.linspace(0,2*pi, c.steps) + self.offset)
+        if self.jointName == "Torso_BackLeg":
+            self.motorValues = self.amplitude*numpy.sin(self.frequency*0.5*numpy.linspace(0,2*pi, c.steps) + self.offset)
+            print(self.motorValues)
+        else:
+            self.motorValues = self.amplitude*numpy.sin(self.frequency*numpy.linspace(0,2*pi, c.steps) + self.offset)
         
     def Set_Value(self,robot,i):
         pyrosim.Set_Motor_For_Joint(

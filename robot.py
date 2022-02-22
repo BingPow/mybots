@@ -27,10 +27,10 @@ class ROBOT:
         for jointName in pyrosim.jointNamesToIndices:
             self.motors[jointName] = MOTOR(jointName)
 
-    def Act(self,i):
+    def Act(self,t):
         self.jointNamesList = list(self.motors.keys())
         for i in range(len(self.motors)):
-            self.motors[self.jointNamesList[i]].Set_Value(self.robot,i)
+            self.motors[self.jointNamesList[i]].Set_Value(self.robot,t)
 
     def Save_Values(self):
         pass
