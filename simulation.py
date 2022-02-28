@@ -25,9 +25,9 @@ class SIMULATION:
 
     def Run(self):
         for i in range (c.steps): #should be 1000
-            print(i)
             p.stepSimulation()
             self.robot.Sense(i)
+            self.robot.Think()
             self.robot.Act(i)
             time.sleep(c.sleep)
 

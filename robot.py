@@ -1,6 +1,7 @@
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
+from pyrosim.neuralNetwork import NEURAL_NETWORK
 import constants as c
 import numpy
 
@@ -12,6 +13,8 @@ class ROBOT:
         self.sensors = {}
         self.motors = {}
         self.robot = p.loadURDF("body.urdf")
+        self.nn = NEURAL_NETWORK("brain.nndf")
+
     #Removed robotId with robot
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:
@@ -31,6 +34,10 @@ class ROBOT:
         self.jointNamesList = list(self.motors.keys())
         for i in range(len(self.motors)):
             self.motors[self.jointNamesList[i]].Set_Value(self.robot,t)
+
+    def Think(self):
+        self.nn.Update()
+        self.nn.Print()
 
     def Save_Values(self):
         pass
