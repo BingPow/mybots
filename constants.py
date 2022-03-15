@@ -12,7 +12,7 @@ amplitude = pi/4
 frequency = 7
 phaseOffSet = pi/4
 
-maxForce = 10
+maxForce = 50
 
 sleep = 1/60
 
