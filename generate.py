@@ -27,8 +27,8 @@ def Generate_Body():
     pyrosim.Send_Joint(name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [2.0,0,1.0])
     pyrosim.End()
 
-def Generate_Brain():
-    random.random(15)
+def Generate_Brain(weights):
+    random.random()
 
     pyrosim.Start_NeuralNetwork("brain.nndf")
     sensorName = [0,1,2]
@@ -38,10 +38,9 @@ def Generate_Brain():
     pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
     pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
     pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
-    print(sensorName)
-    for i in range(len(sensorName)):
-        for j in range(len(motorName)):
-            pyrosim.Send_Synapse(sourceNeuronName = sensorName[i], targetNeuronName = motorName[j] , weight = random.randrange(-1,1) )
+    for currentRow in range(3):
+        for currentColumn in range(2):
+            pyrosim.Send_Synapse(sourceNeuronName = sensorName[currentRow], targetNeuronName = motorName[currentColumn+3] , weight = weights[currentRow][currentColumn] )
     
     '''
     pyrosim.Send_Synapse(sourceNeuronName = 0, targetNeuronName = 3 , weight = 1.0 )
