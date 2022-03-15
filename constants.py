@@ -1,7 +1,7 @@
 from math import pi
 
 #GRAVITY
-grav = -9.8
+grav = -20
 
 #NUMBER OF STEPS, VERY IMPORTANT for FOR LOOP, SENSORS AND TARGET ANGLES
 #usually 1000
