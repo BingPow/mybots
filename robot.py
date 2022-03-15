@@ -32,6 +32,7 @@ class ROBOT:
 
     def Act(self,t):
         self.jointNamesList = list(self.motors.keys())
+        '''
         for neuronName in self.nn.Get_Neuron_Names():
             if (self.nn.Is_Motor_Neuron(neuronName)):
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
@@ -40,7 +41,7 @@ class ROBOT:
         '''
         for i in range(len(self.motors)):
             self.motors[self.jointNamesList[i]].Set_Value(self.robot,t)
-            '''
+        
 
     def Think(self):
         self.nn.Update()
