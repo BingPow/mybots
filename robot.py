@@ -25,7 +25,6 @@ class ROBOT:
     #some how get the dictionary to update the lists by link name
     def Sense(self,t):
         self.linkNamesList = list(self.sensors.keys())
-        
         for i in range(len(self.sensors)):
             self.sensors[self.linkNamesList[i]].Get_Value(t)
         

@@ -50,6 +50,10 @@ def Get_Touch_Sensor_Value_For_Link(linkName):
 
     pts = p.getContactPoints()
 
+    # Fix to try to get pts to have some value and not just be null
+    if pts == None:
+        pts = {}
+
     for pt in pts:
 
         linkIndex = pt[4]
