@@ -15,6 +15,8 @@ class ROBOT:
         self.robot = p.loadURDF("body.urdf")
         self.nn = NEURAL_NETWORK("brain.nndf")
 
+        self.outfile = open("fitness.txt", 'w')
+
     #Removed robotId with robot
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:
@@ -23,6 +25,7 @@ class ROBOT:
     #some how get the dictionary to update the lists by link name
     def Sense(self,t):
         self.linkNamesList = list(self.sensors.keys())
+        
         for i in range(len(self.sensors)):
             self.sensors[self.linkNamesList[i]].Get_Value(t)
         
@@ -45,6 +48,12 @@ class ROBOT:
     def Think(self):
         self.nn.Update()
         self.nn.Print()
+
+    def Get_Fitness(self):
+        self.stateOfLinkZero = p.getLinkState(self.robot,0)
+        self.positionOfLinkZero = self.stateOfLinkZero[0]
+        self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
+        self.outfile.write(str(self.xCoordinateOfLinkZero))
 
     def Save_Values(self):
         pass

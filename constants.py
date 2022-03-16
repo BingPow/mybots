@@ -7,6 +7,8 @@ grav = -20
 #usually 1000
 steps = 1000
 
+numberOfGenerations = 10
+
 #Amplitudes and Front Legs
 amplitude = pi/4
 frequency = 7
@@ -14,7 +16,7 @@ phaseOffSet = pi/4
 
 maxForce = 50
 
-sleep = 1/60
+sleep = 1 / 240
 
 length = 1
 width = 1
