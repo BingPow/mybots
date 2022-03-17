@@ -22,7 +22,6 @@ class HILL_CLIMBER:
 
     def Evolve_For_One_Generation(self,G):
         self.Spawn()
-
         self.Mutate()
         self.child.Evaluate(G)
         self.Print()
@@ -35,7 +34,7 @@ class HILL_CLIMBER:
         self.child.Mutate()
 
     def Select(self):
-        if self.child.fitness<self.parent.fitness:
+        if self.child.fitness < self.parent.fitness:
             self.parent = self.child
 
     def Print(self):

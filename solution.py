@@ -21,6 +21,7 @@ class SOLUTION:
 
     def Evaluate(self,G):
         
+        # Seems like when the GUI runs it doesn't save the fitness
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
