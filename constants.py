@@ -9,6 +9,8 @@ steps = 1000
 
 numberOfGenerations = 10
 
+populationSize = 2
+
 #Amplitudes and Front Legs
 amplitude = pi/4
 frequency = 7
