@@ -14,6 +14,8 @@ from robot import ROBOT
 
 class SIMULATION:
     def __init__(self, G):
+        self.directOrGUI = G
+
         if G=="DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
         else:
@@ -34,8 +36,8 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-            
-            time.sleep(c.sleep)
+            if (self.directOrGUI == 'GUI'):
+                time.sleep(c.sleep)
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()
