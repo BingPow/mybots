@@ -8,14 +8,21 @@ import numpy
 from sensor import SENSOR
 from motor import MOTOR
 
+import os
+
 class ROBOT:
-    def __init__(self):
+    def __init__(self, solutionID):
+        self.myID = solutionID
+
         self.sensors = {}
         self.motors = {}
         self.robot = p.loadURDF("body.urdf")
-        self.nn = NEURAL_NETWORK("brain.nndf")
+        
+        self.nn = NEURAL_NETWORK("brain" + str(self.myID) + ".nndf")
 
-        self.outfile = open("fitness.txt", 'w')
+        self.outfile = open("tmp" + str(self.myID) + ".txt", 'w')
+
+        os.system("rm brain" + str(solutionID) + ".nndf")
 
     #Removed robotId with robot
     def Prepare_To_Sense(self):
@@ -53,6 +60,8 @@ class ROBOT:
         self.positionOfLinkZero = self.stateOfLinkZero[0]
         self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
         self.outfile.write(str(self.xCoordinateOfLinkZero))
+        os.system("mv tmp" + str(self.myID) + ".txt fitness" + str(self.myID) + ".txt")
+        self.outfile.close()
 
     def Save_Values(self):
         pass

@@ -4,20 +4,55 @@ from pyparsing import pythonStyleComment
 import pyrosim.pyrosim as pyrosim
 import constants as c
 
+import time
 import os
 
 
 class SOLUTION:
 
-    def __init__(self):
+    def __init__(self, nextAvailableID):
+        self.myID = nextAvailableID
 
         self.weights = numpy.random.rand(3,2)
         self.weights = self.weights * 2 - 1
+
+    def Set_ID(self, myID):
+        self.myID = myID
 
     def Mutate(self):
         randrow = random.randint(0,2)
         randcol = random.randint(0,1)
         self.weights[randrow][randcol] = random.random()*2 - 1
+
+    def Start_Simulation(self,G):
+        self.Create_World()
+        self.Create_Body()
+        self.Create_Brain()
+        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
+
+    def Wait_For_Simulation_To_End(self):
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.01)
+
+        while os.path.getsize("fitness"+str(self.myID)+".txt")<5:
+            time.sleep(0.01)
+
+        infile = open("fitness" + str(self.myID) + ".txt", 'r')
+
+        fitness = float(infile.readline())
+
+        try:
+            self.fitness = float(fitness)
+        except ValueError as error:
+            print(error)
+            print("attempted to convert: "+fitness)
+            print("ID: "+str(self.myID))
+            exit()
+        infile.close() 
+
+        os.system("rm fitness" + str(self.myID) + ".txt")
+        
+        G = "DIRECT"
 
     def Evaluate(self,G):
         
@@ -25,10 +60,13 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system('python3 simulate.py ' + G)  
-            
-        infile = open("fitness.txt", 'r')
+        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
+          
+        infile = open("fitness" + str(self.myID) + ".txt", 'r')
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.01)
         self.fitness = float(infile.readline())
+        print('printing fitness: ' + str(self.fitness))
         infile.close() 
 
         G = "DIRECT"
@@ -51,7 +89,7 @@ class SOLUTION:
         pyrosim.End()
 
     def Create_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain.nndf")
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")

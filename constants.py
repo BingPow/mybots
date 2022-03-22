@@ -7,9 +7,9 @@ grav = -20
 #usually 1000
 steps = 1000
 
-numberOfGenerations = 10
+numberOfGenerations = 10 # could be 10
 
-populationSize = 2
+populationSize = 10
 
 #Amplitudes and Front Legs
 amplitude = pi/4
