@@ -7,7 +7,7 @@ grav = -20
 #usually 1000
 steps = 1000
 
-numberOfGenerations = 10 # could be 10
+numberOfGenerations = 2 # could be 10
 
 populationSize = 10
 
