@@ -7,10 +7,12 @@ import os
 class PARALLEL_HILL_CLIMBER:
 
     def __init__(self):
-        os.system("rm brain*.nndf")
+        for x in range(c.populationSize):
+            x += 1
+            os.system("rm brain" + str(x) + ".nndf")
 
-        os.system("rm fitness*.nndf")
-
+            os.system("rm fitness" + str(x) + ".txt")
+        exit()
         #self.parent = SOLUTION()
         self.parents = {}
 

@@ -28,7 +28,7 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " 2&>1 &")
+        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
 
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
@@ -60,7 +60,7 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " 2&>1 &")
+        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
           
         infile = open("fitness" + str(self.myID) + ".txt", 'r')
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
