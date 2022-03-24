@@ -1,15 +1,19 @@
 from math import pi
 
 #GRAVITY
-grav = -20
+grav = -9.8
+
+#Neurons
+numSensorNeurons = 9
+numMotorNeurons = 8
 
 #NUMBER OF STEPS, VERY IMPORTANT for FOR LOOP, SENSORS AND TARGET ANGLES
 #usually 1000
 steps = 1000
 
-numberOfGenerations = 10 # could be 10
+numberOfGenerations = 1 # could be 10
 
-populationSize = 100
+populationSize = 1
 
 #Amplitudes and Front Legs
 amplitude = pi/4
