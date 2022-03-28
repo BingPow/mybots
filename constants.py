@@ -13,9 +13,9 @@ steps = 1000
 
 numberOfGenerations = 10 # could be 10
 
-populationSize = 10
+populationSize = 20
 
-maxForce = 50
+maxForce = 75
 
 sleep = 1 / 240
 
