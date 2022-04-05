@@ -22,5 +22,7 @@ for i in range(1):
 
     phc.Show_Best()
 
+    print("printing")
+
     
 

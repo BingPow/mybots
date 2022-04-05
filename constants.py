@@ -1,7 +1,7 @@
 from math import pi
 
 #GRAVITY
-grav = -9.8
+grav = -98.0
 
 #Neurons
 numSensorNeurons = 9
@@ -13,9 +13,9 @@ steps = 1000
 
 numberOfGenerations = 10 # could be 10
 
-populationSize = 20
+populationSize = 10
 
-maxForce = 75
+maxForce = 500
 
 sleep = 1 / 240
 
