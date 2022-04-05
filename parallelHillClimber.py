@@ -51,6 +51,7 @@ class PARALLEL_HILL_CLIMBER:
 
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation(self.G)
+            currentGeneration += 1
         
         '''
         G = "GUI"
@@ -90,7 +91,7 @@ class PARALLEL_HILL_CLIMBER:
         print('\n')
 
     def Evaluate(self, solutions):
-        #self.G = "GUI"
+        # self.G = "GUI"
         self.G = "DIRECT"
 
         for x in range(c.populationSize):
