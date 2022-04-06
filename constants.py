@@ -9,13 +9,13 @@ numMotorNeurons = 8
 
 #NUMBER OF STEPS, VERY IMPORTANT for FOR LOOP, SENSORS AND TARGET ANGLES
 #usually 1000
-steps = 250
+steps = 1000
 
-numberOfGenerations = 1 # could be 10
+numberOfGenerations = 10 # could be 10
 
-populationSize = 1
+populationSize = 100
 
-maxForce = 500
+maxForce = 50
 
 sleep = 1 / 240
 

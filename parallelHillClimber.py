@@ -7,10 +7,9 @@ import os
 class PARALLEL_HILL_CLIMBER:
 
     def __init__(self):
-        for x in range(c.populationSize):
-            os.system("rm brain" + str(x) + ".nndf")
+        os.system("rm brain*.nndf")
 
-            os.system("rm fitness" + str(x) + ".txt")
+        os.system("rm fitness*.txt")
         
         #self.parent = SOLUTION()
         self.parents = {}
@@ -33,11 +32,20 @@ class PARALLEL_HILL_CLIMBER:
         low = 10
         number = 0
         for i in range(c.populationSize):
-            if self.parents[i].fitness < low:
+            #Switched < to >
+            if self.parents[i].fitness > low:
                 low = self.parents[i].fitness
                 number = i
 
         self.G = "GUI"
+
+        self.weights = self.parents[number].Get_Weights()
+
+        f = open("weights.txt", "w")
+        for i in range(c.numSensorNeurons):
+            for j in range(c.numMotorNeurons):
+                f.write(str(self.weights[i][j]) + "\n")
+        f.close()
         
         self.parents[number].Start_Simulation(self.G)
 
@@ -81,7 +89,8 @@ class PARALLEL_HILL_CLIMBER:
 
     def Select(self):
         for i in range(c.populationSize):
-            if self.children[i].fitness < self.parents[i].fitness:
+            #Switched < to >
+            if self.children[i].fitness > self.parents[i].fitness:
                 self.parents[i] = self.children[i]
 
     def Print(self):
