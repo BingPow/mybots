@@ -6,9 +6,9 @@ class MATERIAL:
 
         self.depth  = 3
 
-        self.string1 = '<material name="Cyan">'
+        self.string1 = '<material name="Yellow">'
 
-        self.string2 = '    <color rgba="0 1.0 1.0 1.0"/>'
+        self.string2 = '    <color rgba="1.0 0.9 0 1.0"/>'
 
         self.string3 = '</material>'
 

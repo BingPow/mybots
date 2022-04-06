@@ -11,9 +11,9 @@ numMotorNeurons = 8
 #usually 1000
 steps = 1000
 
-numberOfGenerations = 10 # could be 10
+numberOfGenerations = 1 # could be 10
 
-populationSize = 100
+populationSize = 2
 
 maxForce = 50
 

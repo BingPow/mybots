@@ -16,7 +16,7 @@ class SOLUTION:
 
         self.weights = numpy.random.rand(c.numSensorNeurons,c.numMotorNeurons)
         self.weights = self.weights * 2 - 1
-        
+
         # If ID = 0 use old weights
         if (nextAvailableID == 0):
             f = open("weights.txt", "r")
@@ -95,7 +95,7 @@ class SOLUTION:
 
         pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[2,1,0.5]) 
         pyrosim.Send_Joint(name = "Torso_Head", parent="Torso",child = "Head", type="revolute",position = [1,0,0.5],jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name = "Head", pos=[0,0,0.5], size = [0.5,0.75,0.5])
+        pyrosim.Send_Sphere(name = "Head", pos=[0,0,0.5], size = [0.5]) # ,0.75,0.5
 
         pyrosim.Send_Joint(name = "Torso_BackLeftShoulder", parent="Torso",child = "BackLeftShoulder", type="revolute",position = [-0.75,0.5,1.0],jointAxis = "1 0 0")
         pyrosim.Send_Cube(name = "BackLeftShoulder", pos=[0,0,0], size = [0.5,0.5,0.5])
@@ -135,8 +135,6 @@ class SOLUTION:
 
         pyrosim.Send_Joint(name = "FrontLeftUpperArm_FrontLeftLowerArm", parent="FrontLeftUpperArm",child = "FrontLeftLowerArm", type="revolute",position = [-1,0,0],jointAxis = "0 1 0")
         pyrosim.Send_Cube(name = "FrontLeftLowerArm", pos=[0,0.125,-0.5], size = [0.25,0.25,1])
-
-        # Feet Would Go Here
 
         pyrosim.End()
 

@@ -2,7 +2,7 @@
     <link name="Torso">
         <inertial>
             <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -10,8 +10,8 @@
             <geometry>
                 <box size="2 1 0.5" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -31,22 +31,22 @@
     <link name="Head">
         <inertial>
             <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
             <origin xyz="0 0 0.5" rpy="0 0 0"/>
             <geometry>
-                <box size="0.5 0.75 0.5" />
+                <sphere radius="0.5" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
             <origin xyz="0 0 0.5" rpy="0 0 0"/>
             <geometry>
-                <box size="0.5 0.75 0.5" />
+                <sphere radius="0.5" />
             </geometry>
         </collision>
     </link>
@@ -60,7 +60,7 @@
     <link name="BackLeftShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -68,8 +68,8 @@
             <geometry>
                 <box size="0.5 0.5 0.5" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -89,7 +89,7 @@
     <link name="BackRightShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -97,8 +97,8 @@
             <geometry>
                 <box size="0.5 0.5 0.5" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -118,7 +118,7 @@
     <link name="FrontLeftShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -126,8 +126,8 @@
             <geometry>
                 <box size="0.5 0.5 0.5" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -147,7 +147,7 @@
     <link name="FrontRightShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -155,8 +155,8 @@
             <geometry>
                 <box size="0.5 0.5 0.5" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -176,7 +176,7 @@
     <link name="BackRightUpperArm">
         <inertial>
             <origin xyz="-0.5 -0.125 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -184,8 +184,8 @@
             <geometry>
                 <box size="1 0.25 0.25" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -205,7 +205,7 @@
     <link name="BackLeftUpperArm">
         <inertial>
             <origin xyz="-0.5 0.125 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -213,8 +213,8 @@
             <geometry>
                 <box size="1 0.25 0.25" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -234,7 +234,7 @@
     <link name="FrontRightUpperArm">
         <inertial>
             <origin xyz="-0.5 -0.125 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -242,8 +242,8 @@
             <geometry>
                 <box size="1 0.25 0.25" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -263,7 +263,7 @@
     <link name="FrontLeftUpperArm">
         <inertial>
             <origin xyz="-0.5 0.125 0" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -271,8 +271,8 @@
             <geometry>
                 <box size="1 0.25 0.25" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -292,7 +292,7 @@
     <link name="BackRightLowerArm">
         <inertial>
             <origin xyz="0 -0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -300,8 +300,8 @@
             <geometry>
                 <box size="0.25 0.25 1" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -321,7 +321,7 @@
     <link name="BackLeftLowerArm">
         <inertial>
             <origin xyz="0 0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -329,8 +329,8 @@
             <geometry>
                 <box size="0.25 0.25 1" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -350,7 +350,7 @@
     <link name="FrontRightLowerArm">
         <inertial>
             <origin xyz="0 -0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -358,8 +358,8 @@
             <geometry>
                 <box size="0.25 0.25 1" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
@@ -379,7 +379,7 @@
     <link name="FrontLeftLowerArm">
         <inertial>
             <origin xyz="0 0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1" />
+            <mass value="1.0" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -387,8 +387,8 @@
             <geometry>
                 <box size="0.25 0.25 1" />
             </geometry>
-            <material name="Cyan">
-                <color rgba="0 1.0 1.0 1.0"/>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
             </material>
         </visual>
         <collision>
