@@ -21,7 +21,7 @@ for i in range(1):
     print("Time took: " + str(end-start))
 
     phc.Show_Best()
-
+    
     print("printing")
 
     

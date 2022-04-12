@@ -37,10 +37,12 @@ class PARALLEL_HILL_CLIMBER:
                 low = self.parents[i].fitness
                 number = i
 
+        #fitness = open("bestFitness.txt","r")
+        #bestFitness = fitness.readline()
+
         self.G = "GUI"
 
         self.weights = self.parents[number].Get_Weights()
-
         f = open("weights.txt", "w")
         for i in range(c.numSensorNeurons):
             for j in range(c.numMotorNeurons):

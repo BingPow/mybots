@@ -37,6 +37,7 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
+            self.robot.Get_Z_Fitness()
             if (self.directOrGUI == 'GUI'):
                 time.sleep(c.sleep)
 

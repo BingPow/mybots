@@ -2,7 +2,7 @@
     <link name="Torso">
         <inertial>
             <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="10" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -31,7 +31,7 @@
     <link name="Head">
         <inertial>
             <origin xyz="0 0 0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -60,7 +60,7 @@
     <link name="BackLeftShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="3" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -89,7 +89,7 @@
     <link name="BackRightShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="3" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -118,7 +118,7 @@
     <link name="FrontLeftShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="3" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -147,7 +147,7 @@
     <link name="FrontRightShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="3" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -176,7 +176,7 @@
     <link name="BackRightUpperArm">
         <inertial>
             <origin xyz="-0.5 -0.125 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -205,7 +205,7 @@
     <link name="BackLeftUpperArm">
         <inertial>
             <origin xyz="-0.5 0.125 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -234,7 +234,7 @@
     <link name="FrontRightUpperArm">
         <inertial>
             <origin xyz="-0.5 -0.125 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -263,7 +263,7 @@
     <link name="FrontLeftUpperArm">
         <inertial>
             <origin xyz="-0.5 0.125 0" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -282,6 +282,122 @@
             </geometry>
         </collision>
     </link>
+    <joint name="FrontLeftUpperArm_FrontLeftKnee" type="revolute">
+       <parent link="FrontLeftUpperArm"/>
+       <child  link="FrontLeftKnee"/>
+       <origin rpy="0 0 0" xyz="0 0 0" />
+     <axis xyz="0 1 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="FrontLeftKnee">
+        <inertial>
+            <origin xyz="-1.0 0.125 0" rpy="0 0 0"/>
+            <mass value="1.0" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="-1.0 0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.0 0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="FrontRightUpperArm_FrontRightKnee" type="revolute">
+       <parent link="FrontRightUpperArm"/>
+       <child  link="FrontRightKnee"/>
+       <origin rpy="0 0 0" xyz="0 0 0" />
+     <axis xyz="0 1 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="FrontRightKnee">
+        <inertial>
+            <origin xyz="-1.0 -0.125 0" rpy="0 0 0"/>
+            <mass value="1.0" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="-1.0 -0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.0 -0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="BackLeftUpperArm_BackLeftKnee" type="revolute">
+       <parent link="BackLeftUpperArm"/>
+       <child  link="BackLeftKnee"/>
+       <origin rpy="0 0 0" xyz="0 0 0" />
+     <axis xyz="0 1 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="BackLeftKnee">
+        <inertial>
+            <origin xyz="-1.0 0.125 0" rpy="0 0 0"/>
+            <mass value="1.0" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="-1.0 0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.0 0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="BackRightUpperArm_FrontRightKnee" type="revolute">
+       <parent link="BackRightUpperArm"/>
+       <child  link="BackRightKnee"/>
+       <origin rpy="0 0 0" xyz="0 0 0" />
+     <axis xyz="0 1 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="BackRightKnee">
+        <inertial>
+            <origin xyz="-1.0 -0.125 0" rpy="0 0 0"/>
+            <mass value="1.0" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="-1.0 -0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+            <material name="Yellow">
+                <color rgba="1.0 0.9 0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-1.0 -0.125 0" rpy="0 0 0"/>
+            <geometry>
+                <sphere radius="0.2" />
+            </geometry>
+        </collision>
+    </link>
     <joint name="BackRightUpperArm_BackRightLowerArm" type="revolute">
        <parent link="BackRightUpperArm"/>
        <child  link="BackRightLowerArm"/>
@@ -292,7 +408,7 @@
     <link name="BackRightLowerArm">
         <inertial>
             <origin xyz="0 -0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="6" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -321,7 +437,7 @@
     <link name="BackLeftLowerArm">
         <inertial>
             <origin xyz="0 0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="6" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -350,7 +466,7 @@
     <link name="FrontRightLowerArm">
         <inertial>
             <origin xyz="0 -0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="4" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -379,7 +495,7 @@
     <link name="FrontLeftLowerArm">
         <inertial>
             <origin xyz="0 0.125 -0.5" rpy="0 0 0"/>
-            <mass value="1.0" />
+            <mass value="4" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>

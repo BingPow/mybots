@@ -13,13 +13,13 @@ steps = 1000
 
 numberOfGenerations = 1 # could be 10
 
-populationSize = 2
+populationSize = 1
 
-maxForce = 50
+maxForce = 125
 
 sleep = 1 / 240
 
-motorJointRange = 1
+motorJointRange = 0.75
 
 #Amplitudes and Front Legs
 amplitude = pi/4

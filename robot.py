@@ -21,8 +21,10 @@ class ROBOT:
         self.nn = NEURAL_NETWORK("brain" + str(self.myID) + ".nndf")
 
         self.outfile = open("tmp" + str(self.myID) + ".txt", 'w')
+        os.system("rm brain" + str(self.myID) + ".nndf")
 
-        os.system("rm brain" + str(solutionID) + ".nndf")
+        self.total = 0
+        self.num = 0
 
     #Removed robotId with robot
     def Prepare_To_Sense(self):
@@ -56,13 +58,38 @@ class ROBOT:
         self.nn.Print()
 
     def Get_Fitness(self):
-        self.stateOfLinkZero = p.getLinkState(self.robot,0)
-        self.positionOfLinkZero = self.stateOfLinkZero[0]
-        self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
-        self.outfile.write(str(self.xCoordinateOfLinkZero))
+        stateOfLinkZero = p.getLinkState(self.robot,0)
+        positionOfLinkZero = stateOfLinkZero[0]
+        xCoordinateOfLinkZero = positionOfLinkZero[0]
+        yCoordinateOfLinkZero = positionOfLinkZero[1]
+        
+        
+        print("Printing(ending): " + str(yCoordinateOfLinkZero))
+        print("Printing self.total: " + str(self.total))
+
+        # maybe I should divide by the self.total avg minus the value I want so that the smaller the value the bigger the fitness
+        avg = self.total/1000
+
+        diff = abs(avg - 1.25)
+
+        if diff == 0:
+            diff = 0.000000001
+
+        # I had this: fitness = xCoordinateOfLinkZero/diff
+        fitness = xCoordinateOfLinkZero/diff
+
+        self.outfile.write(str(fitness))
         os.system("mv tmp" + str(self.myID) + ".txt fitness" + str(self.myID) + ".txt")
         self.outfile.close()
 
+    # Using wordlinkframeposition, better for getting z fitness
+    def Get_Z_Fitness(self):
+        stateOfLinkZero = p.getLinkState(self.robot,0)
+        positionOfLinkZero = stateOfLinkZero[4]
+        yCoordinateOfLinkZero = positionOfLinkZero[2]
+        self.total += yCoordinateOfLinkZero
+        self.num += 1
+        
     def Save_Values(self):
         pass
         #numpy.save('data/backLegSensorValues.npy',self.sensors"")
