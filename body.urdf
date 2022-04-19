@@ -2,7 +2,7 @@
     <link name="Torso">
         <inertial>
             <origin xyz="0 0 1" rpy="0 0 0"/>
-            <mass value="10" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -60,7 +60,7 @@
     <link name="BackLeftShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="3" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -89,7 +89,7 @@
     <link name="BackRightShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="3" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -118,7 +118,7 @@
     <link name="FrontLeftShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="3" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -147,7 +147,7 @@
     <link name="FrontRightShoulder">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="3" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -176,7 +176,7 @@
     <link name="BackRightUpperArm">
         <inertial>
             <origin xyz="-0.5 -0.125 0" rpy="0 0 0"/>
-            <mass value="2" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -205,7 +205,7 @@
     <link name="BackLeftUpperArm">
         <inertial>
             <origin xyz="-0.5 0.125 0" rpy="0 0 0"/>
-            <mass value="2" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -234,7 +234,7 @@
     <link name="FrontRightUpperArm">
         <inertial>
             <origin xyz="-0.5 -0.125 0" rpy="0 0 0"/>
-            <mass value="2" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -263,7 +263,7 @@
     <link name="FrontLeftUpperArm">
         <inertial>
             <origin xyz="-0.5 0.125 0" rpy="0 0 0"/>
-            <mass value="2" />
+            <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -408,7 +408,7 @@
     <link name="BackRightLowerArm">
         <inertial>
             <origin xyz="0 -0.125 -0.5" rpy="0 0 0"/>
-            <mass value="6" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -437,7 +437,7 @@
     <link name="BackLeftLowerArm">
         <inertial>
             <origin xyz="0 0.125 -0.5" rpy="0 0 0"/>
-            <mass value="6" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -466,7 +466,7 @@
     <link name="FrontRightLowerArm">
         <inertial>
             <origin xyz="0 -0.125 -0.5" rpy="0 0 0"/>
-            <mass value="4" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
@@ -495,7 +495,7 @@
     <link name="FrontLeftLowerArm">
         <inertial>
             <origin xyz="0 0.125 -0.5" rpy="0 0 0"/>
-            <mass value="4" />
+            <mass value="2" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>

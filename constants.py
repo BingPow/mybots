@@ -11,15 +11,15 @@ numMotorNeurons = 8
 #usually 1000
 steps = 1000
 
-numberOfGenerations = 1 # could be 10
+numberOfGenerations = 20 # could be 10
 
-populationSize = 1
+populationSize = 30
 
 maxForce = 125
 
 sleep = 1 / 240
 
-motorJointRange = 0.75
+motorJointRange = 0.4
 
 #Amplitudes and Front Legs
 amplitude = pi/4

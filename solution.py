@@ -96,33 +96,35 @@ class SOLUTION:
     def Create_Body(self):
         pyrosim.Start_URDF("body.urdf")
 
-        pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[2,1,0.5],mass = 10) 
+        pyrosim.Send_Cube(name="Torso", pos=[0,0,1] , size=[2,1,0.5],mass = 1) 
         pyrosim.Send_Joint(name = "Torso_Head", parent="Torso",child = "Head", type="revolute",position = [1,0,0.5],jointAxis = "1 0 0")
         pyrosim.Send_Sphere(name = "Head", pos=[0,0,0.5], size = [0.5],mass = 1) # ,0.75,0.5
+        # pyrosim.Send_Joint(name = "Torso_Tail", parent="Torso",child = "Tail", type="revolute",position = [-1,0,0.5],jointAxis = "1 0 0")
+        # pyrosim.Send_Cube(name = "Tail", pos=[0,0,0.5], size = [0.5],mass = 1) # ,0.75,0.5
 
         pyrosim.Send_Joint(name = "Torso_BackLeftShoulder", parent="Torso",child = "BackLeftShoulder", type="revolute",position = [-0.75,0.5,1.0],jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name = "BackLeftShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 3)
+        pyrosim.Send_Cube(name = "BackLeftShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 1)
 
         pyrosim.Send_Joint(name = "Torso_BackRightShoulder", parent="Torso",child = "BackRightShoulder", type="revolute",position = [-0.75,-0.5,1.0],jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name = "BackRightShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 3)
+        pyrosim.Send_Cube(name = "BackRightShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 1)
 
         pyrosim.Send_Joint(name = "Torso_FrontLeftShoulder", parent="Torso",child = "FrontLeftShoulder", type="revolute",position = [0.75,0.5,1.0],jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name = "FrontLeftShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 3)
+        pyrosim.Send_Cube(name = "FrontLeftShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 1)
 
         pyrosim.Send_Joint(name = "Torso_FrontRightShoulder", parent="Torso",child = "FrontRightShoulder", type="revolute",position = [0.75,-0.5,1.0],jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name = "FrontRightShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 3)
+        pyrosim.Send_Cube(name = "FrontRightShoulder", pos=[0,0,0], size = [0.5,0.5,0.5],mass = 1)
 
         pyrosim.Send_Joint(name = "BackRightShoulder_BackRightUpperArm", parent="BackRightShoulder",child = "BackRightUpperArm", type="revolute",position = [0,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "BackRightUpperArm", pos=[-0.5,-0.125,0], size = [1,0.25,0.25],mass = 2)
+        pyrosim.Send_Cube(name = "BackRightUpperArm", pos=[-0.5,-0.125,0], size = [1,0.25,0.25],mass = 1)
 
         pyrosim.Send_Joint(name = "BackLeftShoulder_BackLeftUpperArm", parent="BackLeftShoulder",child = "BackLeftUpperArm", type="revolute",position = [0,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "BackLeftUpperArm", pos=[-0.5,0.125,0], size = [1,0.25,0.25],mass = 2)
+        pyrosim.Send_Cube(name = "BackLeftUpperArm", pos=[-0.5,0.125,0], size = [1,0.25,0.25],mass = 1)
 
         pyrosim.Send_Joint(name = "FrontRightShoulder_FrontRightUpperArm", parent="FrontRightShoulder",child = "FrontRightUpperArm", type="revolute",position = [0,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "FrontRightUpperArm", pos=[-0.5,-0.125,0], size = [1,0.25,0.25],mass = 2)
+        pyrosim.Send_Cube(name = "FrontRightUpperArm", pos=[-0.5,-0.125,0], size = [1,0.25,0.25],mass = 1)
 
         pyrosim.Send_Joint(name = "FrontLeftShoulder_FrontLeftUpperArm", parent="FrontLeftShoulder",child = "FrontLeftUpperArm", type="revolute",position = [0,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "FrontLeftUpperArm", pos=[-0.5,0.125,0], size = [1,0.25,0.25],mass = 2)
+        pyrosim.Send_Cube(name = "FrontLeftUpperArm", pos=[-0.5,0.125,0], size = [1,0.25,0.25],mass = 1)
 
         # COULD POTENTIALLY ADD ANOTHER MID JOINT THAT WOULD BE THE "KNEE"
         pyrosim.Send_Joint(name = "FrontLeftUpperArm_FrontLeftKnee", parent = "FrontLeftUpperArm", child = "FrontLeftKnee",type="revolute",position=[0,0,0],jointAxis="0 1 0")
@@ -139,16 +141,16 @@ class SOLUTION:
 
         # I want the knee to bend the other way but you will figure that out
         pyrosim.Send_Joint(name = "BackRightUpperArm_BackRightLowerArm", parent="BackRightUpperArm",child = "BackRightLowerArm", type="revolute",position = [-1,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "BackRightLowerArm", pos=[0,-0.125,-0.5], size = [0.25,0.25,1],mass = 6)
+        pyrosim.Send_Cube(name = "BackRightLowerArm", pos=[0,-0.125,-0.5], size = [0.25,0.25,1],mass = 2)
 
         pyrosim.Send_Joint(name = "BackLeftUpperArm_BackLeftLowerArm", parent="BackLeftUpperArm",child = "BackLeftLowerArm", type="revolute",position = [-1,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "BackLeftLowerArm", pos=[0,0.125,-0.5], size = [0.25,0.25,1],mass = 6)
+        pyrosim.Send_Cube(name = "BackLeftLowerArm", pos=[0,0.125,-0.5], size = [0.25,0.25,1],mass = 2)
 
         pyrosim.Send_Joint(name = "FrontRightUpperArm_FrontRightLowerArm", parent="FrontRightUpperArm",child = "FrontRightLowerArm", type="revolute",position = [-1,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "FrontRightLowerArm", pos=[0,-0.125,-0.5], size = [0.25,0.25,1],mass = 4)
+        pyrosim.Send_Cube(name = "FrontRightLowerArm", pos=[0,-0.125,-0.5], size = [0.25,0.25,1],mass = 2)
 
         pyrosim.Send_Joint(name = "FrontLeftUpperArm_FrontLeftLowerArm", parent="FrontLeftUpperArm",child = "FrontLeftLowerArm", type="revolute",position = [-1,0,0],jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name = "FrontLeftLowerArm", pos=[0,0.125,-0.5], size = [0.25,0.25,1],mass = 4)
+        pyrosim.Send_Cube(name = "FrontLeftLowerArm", pos=[0,0.125,-0.5], size = [0.25,0.25,1],mass = 2)
 
         #Feet
         '''

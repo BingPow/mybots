@@ -25,6 +25,8 @@ class ROBOT:
 
         self.total = 0
         self.num = 0
+        self.num2 = 0
+        self.yCoordinateOfLinkZero = 0
 
     #Removed robotId with robot
     def Prepare_To_Sense(self):
@@ -70,13 +72,18 @@ class ROBOT:
         # maybe I should divide by the self.total avg minus the value I want so that the smaller the value the bigger the fitness
         avg = self.total/1000
 
-        diff = abs(avg - 1.25)
+        diff = abs(avg - 1.1)
 
         if diff == 0:
             diff = 0.000000001
 
+        self.Get_Y_Fitness()
+        print(str(self.yCoordinateOfLinkZero))
+
+        denom = diff + self.yCoordinateOfLinkZero
+
         # I had this: fitness = xCoordinateOfLinkZero/diff
-        fitness = xCoordinateOfLinkZero/diff
+        fitness = xCoordinateOfLinkZero/denom
 
         self.outfile.write(str(fitness))
         os.system("mv tmp" + str(self.myID) + ".txt fitness" + str(self.myID) + ".txt")
@@ -84,11 +91,17 @@ class ROBOT:
 
     # Using wordlinkframeposition, better for getting z fitness
     def Get_Z_Fitness(self):
-        stateOfLinkZero = p.getLinkState(self.robot,0)
+        stateOfLinkZero = p.getLinkState(self.robot,1)
         positionOfLinkZero = stateOfLinkZero[4]
-        yCoordinateOfLinkZero = positionOfLinkZero[2]
-        self.total += yCoordinateOfLinkZero
+        zCoordinateOfLinkZero = positionOfLinkZero[2]
+        self.total += zCoordinateOfLinkZero
         self.num += 1
+
+    def Get_Y_Fitness(self):
+        stateOfLinkZero = p.getLinkState(self.robot,2)
+        positionOfLinkZero = stateOfLinkZero[4]
+        self.yCoordinateOfLinkZero = positionOfLinkZero[1]
+        
         
     def Save_Values(self):
         pass
