@@ -9,17 +9,17 @@ numMotorNeurons = 8
 
 #NUMBER OF STEPS, VERY IMPORTANT for FOR LOOP, SENSORS AND TARGET ANGLES
 #usually 1000
-steps = 1000
+steps = 1500
 
-numberOfGenerations = 20 # could be 10
+numberOfGenerations = 25 # could be 10
 
-populationSize = 30
+populationSize = 50
 
-maxForce = 125
+maxForce = 100
 
 sleep = 1 / 240
 
-motorJointRange = 0.4
+motorJointRange = .75
 
 #Amplitudes and Front Legs
 amplitude = pi/4

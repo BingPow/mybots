@@ -19,13 +19,13 @@ class SOLUTION:
 
         # If ID = 0 use old weights
         
-        if (nextAvailableID == 0):
-            f = open("weights.txt", "r")
-            for i in range(c.numSensorNeurons):
-                for j in range(c.numMotorNeurons):
-                    self.weights[i][j] = f.readline()
+        # if (nextAvailableID == 0):
+        #     f = open("weightsB.txt", "r")
+        #     for i in range(c.numSensorNeurons):
+        #         for j in range(c.numMotorNeurons):
+        #             self.weights[i][j] = f.readline()
                 
-            f.close()
+        #     f.close()
 
     def Set_ID(self, myID):
         self.myID = myID
@@ -43,7 +43,7 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
         #os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
-        os.system('python3 simulate.py ' + G + " " + str(self.myID) + " 2&>1 &")
+        os.system('python3 simulateB.py ' + G + " " + str(self.myID) + " 2&>1 &")
 
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
@@ -74,7 +74,7 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
         #os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
-        os.system("python3 simulate.py " + G + " " + str(self.myID) + " 2&>1 &")
+        os.system("python3 simulateB.py " + G + " " + str(self.myID) + " 2&>1 &")
           
         infile = open("fitness" + str(self.myID) + ".txt", 'r')
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):

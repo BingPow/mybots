@@ -7,8 +7,9 @@ import time
 
 import os
 from parallelHillClimber import PARALLEL_HILL_CLIMBER
+from parallelHillClimberB import PARALLEL_HILL_CLIMBERB
 
-for i in range(1):
+for i in range(10):
     phc = PARALLEL_HILL_CLIMBER()
 
     start = time.time()
@@ -17,11 +18,22 @@ for i in range(1):
 
     end = time.time()
 
-    print("Time took: " + str(end-start))
+    print("Time took: " + str(end-start) + "\n")
 
     phc.Show_Best()
-    
-    print("printing")
 
+    
+for j in range(10):
+    phcB = PARALLEL_HILL_CLIMBERB()
+
+    start = time.time()
+
+    phcB.Evolve()
+
+    end = time.time()
+
+    print("Time took: " + str(end-start) + "\n")
+
+    phcB.Show_Best()
     
 

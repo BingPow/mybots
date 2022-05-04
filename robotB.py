@@ -10,7 +10,7 @@ from motor import MOTOR
 
 import os
 
-class ROBOT:
+class ROBOTB:
     def __init__(self, solutionID):
         self.myID = solutionID
 
@@ -19,7 +19,7 @@ class ROBOT:
         self.robot = p.loadURDF("body.urdf")
         
         self.nn = NEURAL_NETWORK("brain" + str(self.myID) + ".nndf")
-        self.outF1 = open("dudeA.txt",'a')
+        self.outF1 = open("dudeB.txt",'a')
         self.outfile = open("tmp" + str(self.myID) + ".txt", 'w')
         os.system("rm brain" + str(self.myID) + ".nndf")
 
@@ -50,10 +50,7 @@ class ROBOT:
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
                 desiredAngle = self.nn.Get_Value_Of(neuronName) * c.motorJointRange
                 self.motors[jointName].Set_Value(self.robot,desiredAngle)
-        '''
-        for i in range(len(self.motors)):
-            self.motors[self.jointNamesList[i]].Set_Value(self.robot,t)
-        '''
+    
 
     def Think(self):
         self.nn.Update()
