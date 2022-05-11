@@ -1,6 +1,6 @@
 from solutionB import SOLUTION
 import copy
-import constants as c
+import constantsB as c
 
 import os
 

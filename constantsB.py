@@ -5,13 +5,13 @@ grav = -9.8
 
 #Neurons
 numSensorNeurons = 11
-numMotorNeurons = 8
+numMotorNeurons = 4
 
 #NUMBER OF STEPS, VERY IMPORTANT for FOR LOOP, SENSORS AND TARGET ANGLES
 #usually 1000
 steps = 1500
 
-numberOfGenerations = 1  # could be 10
+numberOfGenerations = 1 # could be 10
 
 populationSize = 1
 

@@ -3,7 +3,7 @@ import numpy
 import random
 from pyparsing import pythonStyleComment
 import pyrosim.pyrosim as pyrosim
-import constants as c
+import constantsB as c
 
 import time
 import os
@@ -19,13 +19,13 @@ class SOLUTION:
 
         # If ID = 0 use old weights
         
-        # if (nextAvailableID == 0):
-        #     f = open("weightsB.txt", "r")
-        #     for i in range(c.numSensorNeurons):
-        #         for j in range(c.numMotorNeurons):
-        #             self.weights[i][j] = f.readline()
+        if (nextAvailableID == 0):
+            f = open("weightsB.txt", "r")
+            for i in range(c.numSensorNeurons):
+                for j in range(c.numMotorNeurons):
+                    self.weights[i][j] = f.readline()
                 
-        #     f.close()
+            f.close()
 
     def Set_ID(self, myID):
         self.myID = myID
@@ -42,7 +42,6 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        #os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
         os.system('python3 simulateB.py ' + G + " " + str(self.myID) + " 2&>1 &")
 
     def Wait_For_Simulation_To_End(self):
@@ -73,7 +72,6 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        #os.system('python3 simulate.py ' + G + " " + str(self.myID) + " &")
         os.system("python3 simulateB.py " + G + " " + str(self.myID) + " 2&>1 &")
           
         infile = open("fitness" + str(self.myID) + ".txt", 'r')
@@ -185,18 +183,10 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 9 , linkName = "FrontLeftLowerArm")
         pyrosim.Send_Sensor_Neuron(name = 10 , linkName = "FrontRightLowerArm")
         
-        pyrosim.Send_Motor_Neuron( name = 11 , jointName = "BackRightShoulder_BackRightUpperArm")
-        pyrosim.Send_Motor_Neuron( name = 12 , jointName = "BackLeftShoulder_BackLeftUpperArm")
-        pyrosim.Send_Motor_Neuron( name = 13 , jointName = "FrontRightShoulder_FrontRightUpperArm")
-        pyrosim.Send_Motor_Neuron( name = 14 , jointName = "FrontLeftShoulder_FrontLeftUpperArm")
-        pyrosim.Send_Motor_Neuron( name = 15 , jointName = "BackRightUpperArm_BackRightLowerArm")
-        pyrosim.Send_Motor_Neuron( name = 16 , jointName = "BackLeftUpperArm_BackLeftLowerArm")
-        pyrosim.Send_Motor_Neuron( name = 17 , jointName = "FrontRightUpperArm_FrontRightLowerArm")
-        pyrosim.Send_Motor_Neuron( name = 18 , jointName = "FrontLeftUpperArm_FrontLeftLowerArm")
-        # pyrosim.Send_Motor_Neuron( name = 11 , jointName = "BackRightUpperArm_BackRightLowerArm")
-        # pyrosim.Send_Motor_Neuron( name = 12 , jointName = "BackLeftUpperArm_BackLeftLowerArm")
-        # pyrosim.Send_Motor_Neuron( name = 13 , jointName = "FrontRightUpperArm_FrontRightLowerArm")
-        # pyrosim.Send_Motor_Neuron( name = 14 , jointName = "FrontLeftUpperArm_FrontLeftLowerArm")
+        pyrosim.Send_Motor_Neuron( name = 11 , jointName = "BackRightUpperArm_BackRightLowerArm")
+        pyrosim.Send_Motor_Neuron( name = 12 , jointName = "BackLeftUpperArm_BackLeftLowerArm")
+        pyrosim.Send_Motor_Neuron( name = 13 , jointName = "FrontRightUpperArm_FrontRightLowerArm")
+        pyrosim.Send_Motor_Neuron( name = 14 , jointName = "FrontLeftUpperArm_FrontLeftLowerArm")
 
 
         for currentRow in range(c.numSensorNeurons):

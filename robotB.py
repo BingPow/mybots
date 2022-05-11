@@ -2,7 +2,7 @@ import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 from pyrosim.neuralNetwork import NEURAL_NETWORK
-import constants as c
+import constantsB as c
 import numpy
 
 from sensor import SENSOR
@@ -19,8 +19,9 @@ class ROBOTB:
         self.robot = p.loadURDF("body.urdf")
         
         self.nn = NEURAL_NETWORK("brain" + str(self.myID) + ".nndf")
-        self.outF1 = open("dudeB.txt",'a')
-        self.outfile = open("tmp" + str(self.myID) + ".txt", 'w')
+        self.outF1 = open("dudeB.txt","a")
+        self.fitnessFileB = open("fitnessFileB.txt","a")
+        self.outfile = open("tmp" + str(self.myID) + ".txt", "w")
         os.system("rm brain" + str(self.myID) + ".nndf")
 
         self.total = 0
@@ -66,26 +67,18 @@ class ROBOTB:
         print("Printing(ending): " + str(yCoordinateOfLinkZero))
         print("Printing self.total: " + str(self.total))
 
-        # maybe I should divide by the self.total avg minus the value I want so that the smaller the value the bigger the fitness
-        avg = self.total/1000
-
-        diff = abs(avg - 1)
-
-        if diff == 0:
-            diff = 0.000000001
-
-        denom = diff
-
         # I had this: fitness = xCoordinateOfLinkZero/diff
         fitness = xCoordinateOfLinkZero
 
         self.outF1.write(str(fitness) + '\n')
         self.outF1.close()
 
+        self.fitnessFileB.write(str(fitness) + '\n')
+        self.fitnessFileB.close()
+
         self.outfile.write(str(fitness))
         os.system("mv tmp" + str(self.myID) + ".txt fitness" + str(self.myID) + ".txt")
         self.outfile.close()
-
     
 
     # Using wordlinkframeposition, better for getting z fitness

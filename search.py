@@ -9,31 +9,31 @@ import os
 from parallelHillClimber import PARALLEL_HILL_CLIMBER
 from parallelHillClimberB import PARALLEL_HILL_CLIMBERB
 
-for i in range(10):
+start = time.time()
+for i in range(1):
+    startSing = time.time()
     phc = PARALLEL_HILL_CLIMBER()
-
-    start = time.time()
 
     phc.Evolve()
 
-    end = time.time()
-
-    print("Time took: " + str(end-start) + "\n")
-
     phc.Show_Best()
-
+    endSing = time.time()
+    print("A-Time took for run " + str(i) + ": " + str(endSing-startSing) + "\n")
+end = time.time()
+print("Time took A: " + str(end-start) + "\n")
     
-for j in range(10):
-    phcB = PARALLEL_HILL_CLIMBERB()
 
-    start = time.time()
+# start = time.time()
+# for j in range(1):
+#     startSing = time.time()
+#     phcB = PARALLEL_HILL_CLIMBERB()
 
-    phcB.Evolve()
+#     phcB.Evolve()
 
-    end = time.time()
-
-    print("Time took: " + str(end-start) + "\n")
-
-    phcB.Show_Best()
+#     phcB.Show_Best()
+#     endSing = time.time()
+#     print("B-Time took for run " + str(j) + ": " + str(endSing-startSing) + "\n")
+# end = time.time()
+# print("Time took B: " + str(end-start) + "\n")
     
 

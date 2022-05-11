@@ -20,6 +20,7 @@ class ROBOT:
         
         self.nn = NEURAL_NETWORK("brain" + str(self.myID) + ".nndf")
         self.outF1 = open("dudeA.txt",'a')
+        self.fitnessFileA = open("fitnessFileA.txt","a")
         self.outfile = open("tmp" + str(self.myID) + ".txt", 'w')
         os.system("rm brain" + str(self.myID) + ".nndf")
 
@@ -69,21 +70,13 @@ class ROBOT:
         print("Printing(ending): " + str(yCoordinateOfLinkZero))
         print("Printing self.total: " + str(self.total))
 
-        # maybe I should divide by the self.total avg minus the value I want so that the smaller the value the bigger the fitness
-        avg = self.total/1000
-
-        diff = abs(avg - 1)
-
-        if diff == 0:
-            diff = 0.000000001
-
-        denom = diff
-
-        # I had this: fitness = xCoordinateOfLinkZero/diff
         fitness = xCoordinateOfLinkZero
 
         self.outF1.write(str(fitness) + '\n')
         self.outF1.close()
+
+        self.fitnessFileA.write(str(fitness) + '\n')
+        self.fitnessFileA.close()
 
         self.outfile.write(str(fitness))
         os.system("mv tmp" + str(self.myID) + ".txt fitness" + str(self.myID) + ".txt")
